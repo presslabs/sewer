@@ -10,7 +10,7 @@ from cryptography.hazmat.primitives.serialization import (
     NoEncryption,
     PrivateFormat,
 )
-from cryptography.hazmat.backends import default_backend, openssl
+from cryptography.hazmat.backends import default_backend
 
 from typing import Any, Callable, cast, Dict, List, Optional, Tuple, Type, Union
 
@@ -40,8 +40,8 @@ class AcmeKidError(AcmeKeyError):
 
 ### FIX ME ### is there any way to eliminate the repetition here?  cryptography classes...
 
-private_key_types = (openssl.rsa._RSAPrivateKey, openssl.ec._EllipticCurvePrivateKey)
-PrivateKeyType = Union[openssl.rsa._RSAPrivateKey, openssl.ec._EllipticCurvePrivateKey]
+private_key_types = (rsa.RSAPrivateKey, ec.EllipticCurvePrivateKey)
+PrivateKeyType = Union[rsa.RSAPrivateKey, ec.EllipticCurvePrivateKey]
 
 
 ### low level key type table
